@@ -1,0 +1,63 @@
+<%- include ('_layouts/header.ejs'); -%>
+
+<div class="search-page">
+
+    <div class="search">
+
+        <h1>Search</h1>
+        
+        <div class="search-content">
+            
+            
+            <input id="search-box" onkeyup="sendData(this)" placeholder="Search">
+
+            
+            <section id="searchResults">
+                
+                
+            </section>
+
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+<script>
+    function sendData(e) {
+        const searchResults = document.getElementById('searchResults');
+        fetch('/search/getProducts', {
+            method:"POST",        
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({payload:e.value})
+        })  .then(res => res.json()).then(data => {
+                let payload = data.payload;
+                searchResults.innerHTML = '';
+                if(payload.length < 1) {
+                    searchResults.innerHTML = '<p>Not Found</p>'
+                    return;
+                }
+                payload.forEach((item,index) => {
+                    if(index > 0) searchResults.innerHTML += '<hr>';
+                    searchResults.innerHTML += `
+                    <div class="kq">
+                        <a href="/products/${item.category}/${item.slug}" >${item.title}</a>
+                    </div>
+                        
+                        
+                    `;
+                    
+                });
+                    
+            });
+            return; 
+        searchResults.innerHTML='';
+    }
+    
+    
+</script>
+
+</body>
+</html>

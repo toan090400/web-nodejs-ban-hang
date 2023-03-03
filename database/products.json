@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "61a9bcfc6b0632209e988fda"
+  },
+  "title": "Combo",
+  "slug": "combo",
+  "description": "02 GÀ GIÒN VUI VẺ + 02 MỲ Ý SỐT BÒ BẰM + 01 KHOAI TÂY CHIÊN VỪA + 2 LY PEPSI VỪA",
+  "category": "combo",
+  "price": 75000,
+  "image": "jolibee1.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a9bd606b0632209e988fe2"
+  },
+  "title": "Cơm gà 1",
+  "slug": "cơm-gà-1",
+  "description": "1 MIẾNG GÀ SỐT CAY + CƠM",
+  "category": "cơm gà",
+  "price": 60000,
+  "image": "com_ga2.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a9bd896b0632209e988fea"
+  },
+  "title": "Mỳ 1",
+  "slug": "mỳ-1",
+  "description": "MÌ Ý SỐT BÒ BẰM LỚN + 2 MIẾNG GÀ KHÔNG XƯƠNG + KHOAI TÂY VỪA + NƯỚC NGỌT",
+  "category": "mỳ ý",
+  "price": 65000,
+  "image": "mi2.png",
+  "__v": 0
+}]

@@ -1,0 +1,41 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Edit Accounts</h2>
+    <a href="/admin/accounts" class="btn btn-primary">Back to all Accounts</a>
+    <div class="mt4">
+        <form action="/admin/accounts/edit-account/<%= id %>" method="post">
+            <input type="hidden" name="id" value="<%= id %>">
+            <div class="form-group">
+                <label for="">User</label>
+                <input type="text" class="form-control" name="name" value="<%= name %>"  type="text" placeholder="User">
+
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" class="form-control" name="email" value="<%= email %>" type="text" placeholder="Email">
+
+            </div>
+
+            <div class="form-group">
+                <label for="">Account</label>
+                <input type="text" class="form-control" readonly name="username" value="<%= username %>" type="text" placeholder="Username">
+
+            </div>
+    
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" name="password" value="<%= password %>" placeholder="Password">
+
+            </div>
+            
+
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Add Accounts</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

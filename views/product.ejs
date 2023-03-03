@@ -1,0 +1,27 @@
+<%- include ('_layouts/header.ejs'); -%>
+
+
+<div class="content-chitiet">
+    <div class="anh">
+        <div class="anh1">
+            <img src="/product_images/<%= product.id %>/<%= product.image %>" alt="<%= product.title %>">
+        </div>
+        <div class="anhtext">
+            <p class="product-name"><%= product.title %></p>
+        
+            <p class="product-price"><%= product.price %> <sup>VND</sup></p>
+
+            <div class="buy">
+                <a href="/cart/add/<%= product.title %>" class="btn btn-primary">Add to Cart</a>
+            </div>
+            
+        </div>
+    </div>
+    <div class="mota">
+        <ul>
+            <li><%= product.description %>.</li>
+        </ul>
+    </div>
+</div>
+
+<%- include ('_layouts/footer.ejs'); -%>

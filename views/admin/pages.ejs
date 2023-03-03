@@ -1,0 +1,38 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Pages</h2>
+    <br><br>
+    <table class="table table-striped sorting">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pages.forEach(function(page){ %>
+                <tr>
+                    <td><%= page.title %></td>
+                    <td><a href="/admin/pages/edit-page/<%= page.slug %>">Edit</a></td>
+                    
+                    <td>
+                        <form action="/admin/pages/delete-page/<%= page._id %>?_method=DELETE" method="post">
+                            <button class="btn btn-primary">Delete</button>
+                        </form>
+                    </td>
+                    
+                    
+
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Pages</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

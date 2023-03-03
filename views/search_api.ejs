@@ -1,0 +1,24 @@
+<%- include ('_layouts/header.ejs'); -%>
+
+
+
+<!-- Begin product -->
+<div class="content" style="margin-top: 75px;">
+    <% products.forEach(function(product) {%>         
+        <div class="content-product">
+                    
+            <a href="/products/<%= product.category %>/<%= product.slug %>">
+                <img src="/product_images/<%= product.id %>/<%= product.image %>" alt="<%= product.title %>">  
+            </a>
+
+            <p class="product-name"><%= product.title %></p>
+                
+            <p class="product-price"><%= product.price %> <sup>VND</sup></p>
+
+        </div> 
+    <%} ); %>  
+</div>
+<!-- End product -->
+
+
+<%- include ('_layouts/footer.ejs'); -%>

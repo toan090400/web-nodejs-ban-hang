@@ -1,0 +1,53 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Bills</h2>
+    <br><br>
+    <table class="table table-striped sorting">
+
+        <thead>
+            <tr>
+                <th>Account</th>
+                <th>Customer Name</th>
+                <th>Customer Phone</th>
+                <th>Customer Address</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Details Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% carts.forEach(function(cart){ %>
+                <tr>
+                    <td><%= cart.username %></td>
+                    <td><%= cart.name %></td>
+                    <td><%= cart.phone %></td>
+                    <td><%= cart.address %></td>
+                    <td><%= cart.total %></td>
+                    
+
+                    <% 
+                        if(cart.status == true){%>
+                            <td>Yes</td>
+                        <%}
+                        else if(cart.status == false) {%>
+                            <td>No</td>
+                        <%}
+                    %>
+
+                    <td>
+                        <a href="/admin/bills/details-cart/<%= cart.slug %>">Detail</a>
+                    </td>
+
+                    
+
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Bills</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

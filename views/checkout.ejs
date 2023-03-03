@@ -1,0 +1,97 @@
+<%- include ('_layouts/header.ejs'); -%>
+
+<% if (typeof cart !== "undefined") { %>
+
+    <h1 class="page-title">My Cart</h1>
+    <br><br>
+    
+    <div class="shopping">
+
+        <div class="shopping-sanpham">
+            <% var total = 0; %>
+
+            <% cart.forEach(function(product){ %>
+                <% var sub = product.qty * product.price %>
+                <% total += +sub %>
+                <div class="shopping-1-sp">
+                    <div class="shopping-anh">
+                        <img src="<%= product.image %>" alt="">
+                    </div>
+                    <div class="shopping-text">
+                        <p>Sản phẩm: <%= product.title %></p>
+                        <div class="number">
+                            Giá tiền: <%= product.price %> <sup>VND</sup>
+                        </div>
+                        <div class="number">
+                            Số lượng: <%= product.qty %>
+                        </div>
+                        <div class="number">
+                            Thành tiền: <%= sub %> <sup>VND</sup>
+                        </div>
+                        <div class="number">
+                            
+                            <a class="btn btn-successully" href="/cart/update/<%= product.title %>?action=add">+</a>
+                            <a class="btn btn-successully" href="/cart/update/<%= product.title %>?action=remove">-</a>
+                            <a class="btn btn-warning" href="/cart/update/<%= product.title %>?action=clear">Clear</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+
+            <div class="action">
+                <div class="update-cart">
+                    <a class="btn btn-flase" href="/cart/clear">Clear cart</a>
+                </div>
+                
+            </div>
+            
+        </div>
+
+        <div class="shopping-thanhtoan">
+            <form action="/cart/pay" method="post">
+                <div class="thanh-tien">
+                    <div class="tien">
+                        <h2>Tổng tiền: <%= total %> <sup>VND</sup></h2>
+                    </div>
+                </div>
+                <div class="pay-all">
+                    <div class="pay">
+                        <p>Customer Name</p>
+                        <input type="text" name="name" readonly value="<%= user.name %>">
+                    </div>
+                    <!-- <div class="pay">
+                        <p>Customer Phone</p>
+                        <input type="text" name="phone" readonly value="<%= user.username %>">
+                    </div>
+                    <div class="pay">
+                        <p>Customer Address</p>
+                        <input type="text" name="address" readonly value="<%= user.username %>">
+                    </div> -->
+
+                    <input type="hidden" name="username" readonly value="<%= user.username %>">
+                    <input type="hidden" name="total" readonly value="<%= total %>">
+                    <input type="hidden" name="slug" >
+
+                    <button type="submit">Thanh toán</button>
+                </div>
+            </form>
+            
+            
+        </div>
+
+    </div>
+
+    
+    
+    
+    <% } 
+    else {%>
+        <div class="cart-null">
+            <div class="cart-img">
+                <img src="/img/cart-null.png" alt="">
+            </div>
+        </div>
+    <% } 
+%>
+
+<%- include ('_layouts/footer.ejs'); -%>

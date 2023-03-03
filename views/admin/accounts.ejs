@@ -1,0 +1,48 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Accounts</h2>
+    <br><br>
+    <table class="table table-striped sorting">
+
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Admin</th>
+                <th>Accounts</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% accounts.forEach(function(account){ %>
+                <tr>
+                    
+                    <td><%= account.name %></td>
+                    <% 
+                        if(account.admin == 1){%>
+                            <td>Yes</td>
+                        <%}
+                        else if(account.admin ==0) {%>
+                            <td>No</td>
+                        <%}
+                    %>
+                    <td><%= account.username %></td>
+                    <td><%= account.email %></td>
+                    <td>
+                        <a href="/admin/accounts/edit-account/<%= account._id %>">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/admin/accounts/delete-account/<%= account._id %>">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Accounts</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

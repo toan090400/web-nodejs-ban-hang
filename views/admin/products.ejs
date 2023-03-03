@@ -1,0 +1,54 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Products</h2>
+    <br><br>
+
+    <table class="table table-striped sorting">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Vip</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(function(product){ %>
+                <tr>
+                    <td><%= product.title %></td>
+                    <%
+                        if( !(product.vip == "") ){%>
+                            <td><%= product.vip %></td>
+                        <%}
+                        else{%>
+                            <td>Normal</td>    
+                        <%}
+                    %>
+                    <td><%= product.description %></td>
+                    <td><%= product.category %></td>
+                    <td><%= product.price %></td>
+                    <td>
+                        <img style="width: 100px;" src="/product_images/<%= product._id %>/<%= product.image %>" alt="<%= product.title %>">
+                    </td>
+                    <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
+                    <td><a href="/admin/products/delete-product/<%= product._id %>">Delete</a></td>
+
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+        
+    
+    
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Products</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

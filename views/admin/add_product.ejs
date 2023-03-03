@@ -1,0 +1,59 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Add Products</h2>
+    <a href="/admin/products" class="btn btn-primary">Back to all Products</a>
+    <div class="mt4">
+        <form action="/admin/products/add-product" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Category</label>
+                <br>
+                <% categorys.forEach(function(category)
+                    {%>
+                        <input type="radio" name="category" value="<%= category.slug %>">
+                        <label for="vehicle1"> <%= category.title %></label><br>
+                    <%});
+                %>
+            </div>
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="text" class="form-control" name="price" placeholder="Price">
+            </div>
+            
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control" name="image" id="img">
+            </div>
+            
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Add Products</h3>
+</div>
+
+<!-- <script>
+    function readURL(input){
+        if(input.file && input.file[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $("imgPreview").attr('src',e.target.result).width(100).height(100);
+            }
+            reader.readAsDataURL(input.file[0]);
+        }
+    }
+    $("#img").change(function(){
+        readURL(this);
+    })
+</script> -->
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

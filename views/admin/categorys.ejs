@@ -1,0 +1,31 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Categorys</h2>
+    <br><br>
+    <table class="table table-striped sorting">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% categorys.forEach(function(category){ %>
+                <tr>
+                    <td><%= category.title %></td>
+                    <td><a href="/admin/categorys/edit-category/<%= category.slug %>">Edit</a></td>
+                    <td><a href="/admin/categorys/delete-category/<%= category._id %>">Delete</a></td>
+
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+<div class="mt4">
+    <h3 class="text-center">Categorys</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

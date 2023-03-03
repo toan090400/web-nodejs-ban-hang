@@ -1,0 +1,56 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Details</h2>
+    <form action="/admin/bills/edit-bill/<%= slug %>" method="post">
+        <input type="hidden" name="id" value="<%= id %>">
+        <input type="hidden" name="status" value="true">
+        <div class="update-status">
+            <% 
+                if(status == false){%>
+                    <button>Checkout</button>
+                <%}
+            %>
+        </div>
+    </form>
+    <br><br>
+    <table class="table table-striped sorting">
+        <thead>
+            
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                products.forEach( (item) =>{%>
+                    <tr>
+                        <td><%= item.title %></td>
+                        <td><%= item.qty %></td>
+                        <td><%= item.price %></td>
+                        <% 
+                            if(status == true){%>
+                                <td>Đã thanh toán</td>
+                            <%}
+                            else if(status == false) {%>
+                                <td>
+                                    Chưa thanh toán
+                                </td>
+                            <%}
+                        %>
+    
+                    </tr>
+                <% });
+            %>
+                
+        </tbody>
+    </table>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Details</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

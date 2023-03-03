@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/reponsitive.css">
+</head>
+<body>
+
+    
+    <div class="menu">
+        <div class="wrapper">
+            <nav>
+                <input type="checkbox" id="show-search">
+                <input type="checkbox" id="show-menu">
+                <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+                <div class="content">
+                    <div class="logo"><a href="/">Đồ án 3</a></div>
+                    <ul class="links">
+                        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                        <li>
+                            <a href="#" class="desktop-link"><i class="fab fa-product-hunt"></i> Category</a>
+                            <input type="checkbox" id="show-features">
+                            <label for="show-features"><i class="fab fa-product-hunt"></i> Category</label>
+                            <ul>
+                                <li>
+                                    
+                                    <% categorys.forEach(function(category){ %>
+                                        <a href="/products/<%= category.slug %>">
+                                            <i class="fab fa-product-hunt"></i> <%= category.title %>
+                                        </a>
+                                    <% }); %>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        
+                        <% 
+                            if (user && user.admin == 1) { %>
+
+
+                                <li>
+                                    <a href="/cart/checkout"><i class="fas fa-cart-plus"></i> Cart (
+                                        <% if (typeof cart !== "undefined") { %>
+                                                <%= cart.length %>
+                                            <% } else {%>
+                                                0
+                                            <% } 
+                                        %>
+                                    )</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="desktop-link"><i class="fas fa-user"></i> User: <%= user.name %></a>
+                                    <input type="checkbox" id="show-user">
+                                    <label for="show-user"><i class="fas fa-user"></i> User: <%= user.name %></label>
+                                    <ul>
+                                        <li><a href="/users/<%= user._id %>"><i class="fas fa-info-circle"></i> Information</a></li>
+                                        <li><a href="/users/bills/<%= user.username %>"><i class="far fa-money-bill-alt"></i> Bills</a></li>
+                                        <li><a href="/admin/categorys"><i class="fas fa-user-cog"></i> Admin</a></li>
+                                        <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </li>
+                            
+                            <% }
+                            else if(user && user.admin == 0) {%>
+                                <li>
+                                    <a href="/cart/checkout"><i class="fas fa-cart-plus"></i> Cart (
+                                        <% if (typeof cart !== "undefined") { %>
+                                                <%= cart.length %>
+                                            <% } else {%>
+                                                0
+                                            <% } 
+                                        %>
+                                    )</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="desktop-link"><i class="fas fa-user"></i> User: <%= user.name %></a>
+                                    <input type="checkbox" id="show-user">
+                                    <label for="show-user"><i class="fas fa-user"></i> User: <%= user.name %></label>
+                                    <ul>
+                                        <li><a href="/users/<%= user._id %>"><i class="fas fa-info-circle"></i> Information</a></li>
+                                        <li><a href="/users/bills/<%= user.username %>"><i class="far fa-money-bill-alt"></i> Bills</a></li>
+                                        <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </li>
+                            <% } 
+                            else if(user) {%>
+                                <li>
+                                    <a href="/cart/checkout"><i class="fas fa-cart-plus"></i> Cart (
+                                        <% if (typeof cart !== "undefined") { %>
+                                                <%= cart.length %>
+                                            <% } else {%>
+                                                0
+                                            <% } 
+                                        %>
+                                    )</span></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="desktop-link"><i class="fas fa-user"></i> User: <%= user.displayName %></a>
+                                    <input type="checkbox" id="show-user">
+                                    <label for="show-user"><i class="fas fa-user"></i> User: <%= user.displayName %></label>
+                                    <ul>
+                                        <!-- <li><a href="/users/bills/<%= user.displayName %>"><i class="far fa-money-bill-alt"></i> Bills</a></li> -->
+                                        <li><a href="/users/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </li>
+                            <% } 
+                            else if(!user) {%>
+                                <li><a href="/users/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                                <li><a href="/users/register"><i class="fas fa-user-plus"></i> Registed</a></li>
+                            <% } 
+                        %>
+                        
+
+                        <li><a href="/search"><i class="fas fa-search"></i> Search</a></li>
+                        
+                    </ul>
+                </div>
+
+                <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+                <form action="/search/search_api/key" method="get" class="search-box">
+                    <input type="text" name="search" placeholder="Type Something to Search..." required>
+                    <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+                </form>
+                
+            </nav>
+            
+        </div> 
+
+    </div>
+    <!-- End menu -->
+    <div id="toast">
+        <%- messages('messages', locals) %>
+        
+        <% if (typeof alert != 'undefined') {%>
+            <% alert.forEach(function(errors) { %>
+                <div class="toast toast--warning">
+                    <div class="toast__icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="toast__body">
+                        <h3 class="toast__title">Thông báo</h3>
+                        <p class="toast__msg">
+                            <%= errors.msg %>
+                        </p>
+                    </div>
+                    
+                </div>
+            <% }); %>
+        <% }%>
+    </div>
+
+
+    
+
+    
+    
+
+
+
+
+    

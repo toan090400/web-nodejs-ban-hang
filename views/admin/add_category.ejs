@@ -1,0 +1,20 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Add Categorys</h2>
+    <a href="/admin/categorys" class="btn btn-primary">Back to all Categorys</a>
+    <div class="mt4">
+        <form action="/admin/categorys/add-category" method="post">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Title">
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Add Categorys</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

@@ -1,0 +1,86 @@
+
+    <% Object.keys(messages).forEach(function (type) { %>
+        
+        <%
+            if(type === 'success'){%>
+                <div class="toast toast--<%= type %>">
+
+
+                    <% messages[type].forEach(function (message) { %>
+                        
+                        <div class="toast__icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="toast__body">
+                            <h3 class="toast__title">Thông báo</h3>
+                            <p class="toast__msg">
+                                <%= message %>
+                            </p>
+                        </div>
+                        
+                    <% }) %>
+                </div>
+            <%}
+
+            else if(type === 'warning'){%>
+                <div class="toast toast--<%= type %>">
+
+
+                    <% messages[type].forEach(function (message) { %>
+                        
+                        <div class="toast__icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="toast__body">
+                            <h3 class="toast__title">Thông báo</h3>
+                            <p class="toast__msg">
+                                <%= message %>
+                            </p>
+                        </div>
+                        
+                    <% }) %>
+                </div>
+            <%}
+
+            else if(type === 'error'){%>
+                <div class="toast toast--<%= type %>">
+
+
+                    <% messages[type].forEach(function (message) { %>
+                        
+                        <div class="toast__icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="toast__body">
+                            <h3 class="toast__title">Thông báo</h3>
+                            <p class="toast__msg">
+                                <%= message %>
+                            </p>
+                        </div>
+                        
+                    <% }) %>
+                </div>
+            <%}
+                    
+        %>
+
+        <!-- <div class="toast toast--<%= type %>">
+
+
+            <% messages[type].forEach(function (message) { %>
+                
+                <div class="toast__body">
+                    <h3 class="toast__title">Thông báo</h3>
+                    <p class="toast__msg">
+                        <%= message %>
+                    </p>
+                </div>
+                
+            <% }) %>
+        </div> -->
+        
+        
+        
+    <% }) %>
+
+    

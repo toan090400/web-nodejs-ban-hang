@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "61a48e29309c832ce24c72d9"
+  },
+  "title": "Combo",
+  "slug": "combo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a48e40309c832ce24c72de"
+  },
+  "title": "Cơm gà",
+  "slug": "cơm gà",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61a4998ec00c1fecbbfddb02"
+  },
+  "title": "Mỳ ý",
+  "slug": "mỳ ý",
+  "__v": 0
+}]

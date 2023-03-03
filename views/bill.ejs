@@ -1,0 +1,48 @@
+<%- include ('_layouts/header.ejs'); -%>
+<%- include ('_layouts/slider.ejs'); -%>
+
+<div class="content">
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Customer Name</th>
+                <th>Customer Phone</th>
+                <th>Customer Address</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Details Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% carts.forEach(function(cart) {%>         
+                <tr>
+
+
+                    <td><%= cart.username %></td>
+                    <td><%= cart.name %></td>
+                    <td><%= cart.phone %></td>
+                    <td><%= cart.address %></td>
+                    <td><%= cart.total %></td>
+                    
+
+                    <% 
+                        if(cart.status == true){%>
+                            <td>Yes</td>
+                        <%}
+                        else if(cart.status == false) {%>
+                            <td>No</td>
+                        <%}
+                    %>
+
+                    <td>
+                        <a href="/users/details-cart/<%= cart.slug %>">Detail</a>
+                    </td>
+                </tr>
+            <%} ); %>  
+            
+        </tbody>
+    </table> 
+</div>
+
+<%- include ('_layouts/footer.ejs'); -%>

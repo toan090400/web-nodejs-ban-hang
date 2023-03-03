@@ -1,0 +1,171 @@
+[{
+  "_id": {
+    "$oid": "61ebff4efc0089948be0b7a8"
+  },
+  "products": [
+    {
+      "title": "Cơm gà 1",
+      "qty": 2,
+      "price": 60000,
+      "image": "/product_images/61a9bd606b0632209e988fe2/com_ga2.png",
+      "_id": {
+        "$oid": "61ebff4efc0089948be0b7a9"
+      }
+    },
+    {
+      "title": "Combo1",
+      "qty": 1,
+      "price": 75000,
+      "image": "/product_images/61a9bcfc6b0632209e988fda/jolibee1.png",
+      "_id": {
+        "$oid": "61ebff4efc0089948be0b7aa"
+      }
+    }
+  ],
+  "total": 195000,
+  "username": "toan1",
+  "name": "toàn béo",
+  "slug": "0.26811448481144917",
+  "status": false,
+  "time": {
+    "$date": "2022-01-22T12:57:50.362Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61efb765e032d6bda7d29185"
+  },
+  "products": [
+    {
+      "title": "Cơm gà 1",
+      "qty": 2,
+      "price": 60000,
+      "image": "/product_images/61a9bd606b0632209e988fe2/com_ga2.png",
+      "_id": {
+        "$oid": "61efb765e032d6bda7d29186"
+      }
+    },
+    {
+      "title": "Mỳ 1",
+      "qty": 1,
+      "price": 65000,
+      "image": "/product_images/61a9bd896b0632209e988fea/mi2.png",
+      "_id": {
+        "$oid": "61efb765e032d6bda7d29187"
+      }
+    }
+  ],
+  "total": 185000,
+  "username": "nhanvien1",
+  "name": "nhân viên 1",
+  "slug": "nhan-vien-1",
+  "status": false,
+  "time": {
+    "$date": "2022-01-25T08:40:05.696Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61efb788e032d6bda7d291ee"
+  },
+  "products": [
+    {
+      "title": "Mỳ 1",
+      "qty": 2,
+      "price": 65000,
+      "image": "/product_images/61a9bd896b0632209e988fea/mi2.png",
+      "_id": {
+        "$oid": "61efb788e032d6bda7d291ef"
+      }
+    },
+    {
+      "title": "Combo",
+      "qty": 2,
+      "price": 75000,
+      "image": "/product_images/61a9bcfc6b0632209e988fda/jolibee1.png",
+      "_id": {
+        "$oid": "61efb788e032d6bda7d291f0"
+      }
+    }
+  ],
+  "total": 280000,
+  "username": "nhanvien2",
+  "name": "nhân viên 2",
+  "slug": "nhan-vien-2",
+  "status": false,
+  "time": {
+    "$date": "2022-01-25T08:40:40.099Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61eff985b0c6eb8bff75d927"
+  },
+  "products": [],
+  "total": 125000,
+  "username": "toan1",
+  "name": "toàn béo 1",
+  "slug": "toan-beo-1",
+  "status": false,
+  "createdAt": {
+    "$date": "2022-01-25T13:22:13.432Z"
+  },
+  "updatedAt": {
+    "$date": "2022-01-25T13:22:13.432Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61f778214f72602557963438"
+  },
+  "products": [
+    {
+      "title": "Mỳ 1",
+      "qty": 1,
+      "price": 65000,
+      "image": "/product_images/61a9bd896b0632209e988fea/mi2.png",
+      "_id": {
+        "$oid": "61f778214f72602557963439"
+      }
+    }
+  ],
+  "total": 65000,
+  "username": "nhanvien2",
+  "name": "nhân viên 2",
+  "status": false,
+  "createdAt": {
+    "$date": "2022-01-31T05:48:17.815Z"
+  },
+  "updatedAt": {
+    "$date": "2022-01-31T05:48:17.815Z"
+  },
+  "slug": "nhan-vien-2-cp8vP4jJ_v",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "623d7d87a3800c6d6111afd8"
+  },
+  "products": [
+    {
+      "title": "Cơm gà 1",
+      "qty": 1,
+      "price": 60000,
+      "image": "/product_images/61a9bd606b0632209e988fe2/com_ga2.png",
+      "_id": {
+        "$oid": "623d7d87a3800c6d6111afd9"
+      }
+    }
+  ],
+  "total": 60000,
+  "username": "admin",
+  "name": "Admin",
+  "status": false,
+  "createdAt": {
+    "$date": "2022-03-25T08:29:59.861Z"
+  },
+  "updatedAt": {
+    "$date": "2022-03-25T08:29:59.861Z"
+  },
+  "slug": "admin",
+  "__v": 0
+}]

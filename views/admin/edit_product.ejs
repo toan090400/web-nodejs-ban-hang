@@ -1,0 +1,48 @@
+<%- include ('../_layouts/adminHeader.ejs'); -%>
+
+<div class="mt-4">
+    <h2 class="page-title">Edit Products</h2>
+    <a href="/admin/products" class="btn btn-primary">Back to all Products</a>
+    <div class="mt4">
+        <form action="/admin/products/edit-product/<%= id %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Description"><%= description %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Category</label>
+                <br>
+                <% categorys.forEach(function(category)
+                    {%>
+                        <input type="radio" name="category" value="<%= category.slug %>">
+                        <label for="vehicle1"> <%= category.title %></label><br>
+                    <%});
+                %>
+            </div>
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control" name="image" id="img">
+            </div>
+            
+
+            <input type="hidden" name="category_old" value="<%= category %>">
+            <input type="hidden" name="vip_old" value="<%= vip %>">
+            <input type="hidden" name="image">
+
+            <button class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+<div class="mt4">
+    <h3 class="text-center">@Edit Products</h3>
+</div>
+
+<%- include ('../_layouts/adminFooter.ejs'); -%>

@@ -1,0 +1,40 @@
+<%- include ('_layouts/header.ejs'); -%>
+<%- include ('_layouts/slider.ejs'); -%>
+
+<div class="content">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                products.forEach( (item) =>{%>
+                    <tr>
+                        <td><%= item.title %></td>
+                        <td><%= item.qty %></td>
+                        <td><%= item.price %></td>
+                        <% 
+                            if(status == true){%>
+                                <td>Đã thanh toán</td>
+                            <%}
+                            else if(status == false) {%>
+                                <td>
+                                    Chưa thanh toán
+                                </td>
+                            <%}
+                        %>
+    
+                    </tr>
+                <% });
+            %>
+            
+        </tbody>
+    </table> 
+</div>
+
+<%- include ('_layouts/footer.ejs'); -%>

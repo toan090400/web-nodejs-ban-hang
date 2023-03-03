@@ -1,0 +1,99 @@
+/* Messages */
+
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 999999;
+}
+
+.toast{
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding: 20px 0;
+    min-width: 400px;
+    max-width: 450px;
+    border-left: 4px solid;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+    animation: slideInLeft ease .3s ,fadeOut linear 1s 3s forwards;
+}
+@keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(calc(100% + 32px));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+  
+@keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+}
+.toast--success {
+    border-color: #47d864;
+}
+.toast--success .toast__icon{
+    color: #28a745;
+}
+.toast--warning {
+    border-color: #ffc021;
+}
+.toast--warning .toast__icon{
+    color: #ffc107;
+}
+.toast--error {
+    border-color: #ff623d;
+}
+.toast--error .toast__icon{
+    color: #dc3545;
+}
+.toast + .toast{
+    margin-top: 24px;
+}
+.toast__icon{
+    padding: 0 16px;
+}
+.toast__icon{
+    font-size: 24px;
+}
+.toast__body{
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.toast__title{
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-transform: capitalize;
+}
+.toast__msg{
+    font-size: 14px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+/* Update cart status */
+.update-status button{
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    background-color: #0a78d1;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Archivo', sans-serif;
+}
+.update-status button:hover{
+    background-color: #6988ca;
+    color: rgb(12, 19, 19);
+}
+
+/* Image */
+#imgPreview{
+    margin: 20pxs;
+}
